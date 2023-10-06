@@ -18,6 +18,11 @@ app.use("/api/chat", chatRoutes);
 
 app.use("/api/message", messageRoutes);
 
+ app.use(function(req, res, next) {
+     res.header("Access-Control-Allow-Origin", "*");
+     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+     next();
+});
 // const __dirname1 = path.resolve();
 // if(process.env.NODE_ENV === "production") {
 //     app.use(express.static(path.join(__dirname1, "/frontend/a-townhall/build")));
