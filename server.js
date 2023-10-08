@@ -13,10 +13,6 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-app.use("/api/user", userRoutes);
-app.use("/api/chat", chatRoutes);
-
-app.use("/api/message", messageRoutes);
 
 app.use((req,res,next)=>{
     res.header('Access-Control-Allow-Headers, *, Access-Control-Allow-Origin', 'Origin, X-Requested-with, Content_Type,Accept,Authorization','http://localhost:4200');
@@ -26,6 +22,11 @@ app.use((req,res,next)=>{
     }
     next();
 });
+
+app.use("/api/user", userRoutes);
+app.use("/api/chat", chatRoutes);
+
+app.use("/api/message", messageRoutes);
 // const __dirname1 = path.resolve();
 // if(process.env.NODE_ENV === "production") {
 //     app.use(express.static(path.join(__dirname1, "/frontend/a-townhall/build")));
