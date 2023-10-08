@@ -49,7 +49,7 @@ const server = app.listen(port, console.log("App is up on port 3000"));
 const io = require("socket.io")(server, {
   pingTimeOut: 60000,
   cors: {    
-    origin:"https://th-backend-45458f922f56.herokuapp.com",
+    origin:"*",
   },
 });
 
